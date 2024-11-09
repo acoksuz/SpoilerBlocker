@@ -1,0 +1,43 @@
+{
+  "name": "See No Evil",
+  "manifest_version": 2,
+  "version": "1.0",
+	"web_accessible_resources": [
+		"Icons/*"
+	],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "https://grounded-pager-345917.uc.r.appspot.com/content/",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "js": [
+        "content_script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+  	"default_popup": "popup.html",
+  	"default_icon": {
+  		"16": "Icons/16x_monkey.png",
+  		"32": "Icons/32x_monkey.png",
+  		"48": "Icons/48x_monkey.png",
+  		"128": "Icons/128x_monkey.png"
+  	}
+  }
+}
